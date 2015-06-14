@@ -4,11 +4,11 @@ var clone = require('clone')
 
 module.exports = function join(left, right){
   return function(d){
-    right = right.split('.')
-    var table = right.shift()
-      , field = right.join('.')
+    var array = right.split('.')
+      , table = array.shift()
+      , field = array.join('.')
 
-    d[left] = ripple(right)
+    d[left] = ripple(table)
       .filter(by('id', clone(d[left])))
       .map(key(field))
       .pop() || {}
