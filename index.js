@@ -1,6 +1,6 @@
-var clone = require('clone')
-  , key = require('key')
-  , by = require('by')
+var clone = require('utilise.clone')
+  , key = require('utilise.key')
+  , by = require('utilise.by')
 
 module.exports = function join(left, right){
   return function(d){
