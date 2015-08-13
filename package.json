@@ -18,6 +18,7 @@
   "dependencies": {
     "utilise.by": "*",
     "utilise.clone": "*",
+    "utilise.is": "0.0.1",
     "utilise.key": "*"
   }
 }
