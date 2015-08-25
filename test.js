@@ -40,6 +40,17 @@ describe('join', function() {
     expect(o).to.be.eql({ prop: { id: 1, name: 'foo' } })
   })
 
+  it('should work on plain objects without prop', function() {
+    var o = 1
+    expect(join(mock())(o)).to.be.eql({ id: 1, name: 'foo' })
+  })
+
+  it('should work on falsy', function() {
+    var o = 1
+    expect(join(null)(o)).to.be.eql({})
+  })
+
+
 })
 
 function mock() {
