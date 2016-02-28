@@ -41,15 +41,17 @@ describe('join', function() {
   })
 
   it('should work on plain objects without prop', function() {
-    var o = 1
-    expect(join(mock())(o)).to.be.eql({ id: 1, name: 'foo' })
+    expect(join(mock())(1)).to.be.eql({ id: 1, name: 'foo' })
   })
 
   it('should work on falsy', function() {
-    var o = 1
-    expect(join(null)(o)).to.be.eql({})
+    expect(join(null)(1)).to.be.eql({})
   })
 
+  it('should allow joing by any column', function() {
+    expect(join(mock())('foo', 'name')).to.be.eql({ id: 1, name: 'foo' })
+    expect(join('prop', 'props')({ prop: 1 })).to.be.eql({ prop: { id: 1, name: 'foo' } })
+  })
 
 })
 
