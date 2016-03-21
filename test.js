@@ -53,6 +53,11 @@ describe('join', function() {
     expect(join('prop', 'props')({ prop: 1 })).to.be.eql({ prop: { id: 1, name: 'foo' } })
   })
 
+  it('should return gracefully with null/undefined id', function() {
+    expect(join(mock())(undefined)).to.be.eql(undefined)
+    expect(join(mock())(null)).to.be.eql(undefined)
+  })
+
 })
 
 function mock() {
